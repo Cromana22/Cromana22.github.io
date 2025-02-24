@@ -1,2 +1,2 @@
 # Cromana22.github.io
-Online Host
+Online Hosting Example for university teaching.
