@@ -1,9 +1,63 @@
-<html>
-  <body>
-    <p>This page will create a JS alert.</p>
-  </body>
-  <script>
-    alert("Hello World");
-    window.open("https://google.com", "_blank");
-  </script>
+<!DOCTYPE html>
+
+<html> 
+    <head> 
+        <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+        <script src="https://unpkg.com/vue-router@4"></script>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+        <title>Web Development Fundamentals</title> 
+    </head> 
+
+    <body> 
+        <script type="module">
+            import PageHome from './pages/Page-Home.js'
+            import PageDesign from './pages/Page-Design.js'
+            import PageImplement from './pages/Page-Implement.js'
+            import PageEvaluate from './pages/Page-Evaluate.js'
+
+            const { createApp } = Vue
+
+            const routes = [ // here we set up the web address paths and what it points to
+                { path: '/', component: PageHome },
+                { path: '/home', component: PageHome },
+                { path: '/design', component: PageDesign },
+                { path: '/implement', component: PageImplement },
+                { path: '/evaluate', component: PageEvaluate },
+            ]
+
+            const router = VueRouter.createRouter({
+                history: VueRouter.createWebHashHistory(), // Provide the history implementation to use so you can use the browser back buttons.
+                routes, // short for `routes: routes`
+            })
+
+            createApp({
+                components: { PageHome, PageDesign, PageImplement, PageEvaluate },
+            }).use(router)
+            .mount('#vue-app')
+        </script>
+
+        <div id="vue-app">
+            <header class="hero is-small" style="background-color: #076AE0;">
+                <div class="hero-body" style="display: flex; height: 100%;" >
+                    <h1 class="title is-1 has-text-white" style="display: flex; align-items: center;" >
+                        <img src="./images/JRC-logos.jpeg" style="height: 128px; width: 128px;" />
+                        <span class="pl-5"></span>
+                        JRC's Demo For Web Hosting
+                    </h1>
+                </div>
+            </header>
+
+            <nav class="navbar block has-background-primary">
+                <ul class="navbar-brand">
+                    <li class="navbar-item"><router-link to="/" class="has-text-white box has-background-link">Home</router-link></li>
+                    <li class="navbar-item"><router-link to="/design" class="has-text-white box has-background-link">Design</router-link></li>
+                    <li class="navbar-item"><router-link to="/implement" class="has-text-white box has-background-link">Implement</router-link></li>
+                    <li class="navbar-item"><router-link to="/evaluate" class="has-text-white box has-background-link">Evaluate</router-link></li>
+                </ul>
+            </nav>
+            <div>
+                <router-view></router-view>
+            </div>
+        </div> 
+    </body>
 </html>
