@@ -1,2 +1,2 @@
 # Cromana22.github.io
-Online Hosting Example for university teaching.
+This is a personal portfolio website of various web development features and experiments.
