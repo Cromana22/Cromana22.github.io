@@ -20,6 +20,8 @@
         // Use Vue Router to navigate to the extracted path
         if (path) {
           router.push(path);
+          // Use the history API to update the URL without reloading the page
+          history.replaceState(null, null, path);
         }
       }
     </script>
