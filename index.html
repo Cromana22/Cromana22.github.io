@@ -11,5 +11,17 @@
 
   <body>
     <div id="app"></div>
-    </body>
+    <script type="text/javascript">
+      // Check if there's a query parameter in the URL
+      var query = window.location.search;
+      if (query) {
+        // Extract the path from the query parameter
+        var path = query.substring(1);
+        // Use Vue Router to navigate to the extracted path
+        if (path) {
+          router.push(path);
+        }
+      }
+    </script>
+  </body>
 </html>
