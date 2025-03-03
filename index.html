@@ -16,13 +16,10 @@
       var query = window.location.search;
       if (query) {
         // Extract the path from the query parameter
-        var path = query.substring(2);
-        console.log(path);
+        var path = query.substring(1);
         // Use Vue Router to navigate to the extracted path
         if (path) {
           router.push(path);
-          // Use the history API to update the URL without reloading the page
-          history.replaceState(null, null, path);
         }
       }
     </script>
